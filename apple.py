@@ -1,5 +1,6 @@
 from gameobject import GameObject
 from random import randint, choice
+from board import speed_increase_value, lanes
 
 class Apple(GameObject):
   def __init__(self):
@@ -15,5 +16,8 @@ class Apple(GameObject):
       self.reset()
 
   def reset(self):
-    self.x = randint(50, 400)
+    self.x = choice(lanes)
     self.y = -64
+
+  def increase_speed(self):
+    self.dy += speed_increase_value

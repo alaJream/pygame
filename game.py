@@ -3,21 +3,10 @@ pygame.init()
 from apple import Apple
 from strawberry import Strawberry
 from player import Player
-
-
-screen = pygame.display.set_mode([500, 500])
-
-
-
-
-
-
-
-
+from bomb import Bomb
+from board import screen 
 
 # -------------------------------------------
-
-
 
 # Make an instance of GameObject
 apple = Apple()
@@ -30,6 +19,9 @@ strawberry = Strawberry()
 
 # Get the clock
 clock = pygame.time.Clock()
+
+# make Bomb instance
+bomb = Bomb()
 
 
 # Create the game loop

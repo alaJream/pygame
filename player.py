@@ -1,5 +1,5 @@
 from gameobject import GameObject
-
+from board import lanes
 
 #
 class Player(GameObject):
@@ -7,24 +7,45 @@ class Player(GameObject):
     super(Player, self).__init__(0, 0, 'images/player.png')
     self.dx = 0
     self.dy = 0
+    self.pos_x = 1
+    self.pos_y = 1
+    self.state = 0
     self.reset()
-  
+
   def left(self):
-    self.dx -= 100
-  
+    if self.pos_x > 0:
+      self.pos_x -= 1
+    self.update_dx_dy()
+
   def right(self):
-    self.dx += 100
+    if self.pos_x < len(lanes) - 1:
+      self.pos_x += 1
+    self.update_dx_dy()
 
   def up(self):
-    self.dy -= 100
+    if self.pos_y > 0:
+      self.pos_y -= 1
+    self.update_dx_dy()
 
   def down(self):
-    self.dy += 100
+    if self.pos_y < len(lanes) - 1:
+      self.pos_y += 1
+    self.update_dx_dy()
 
   def move(self):
-    self.x -= (self.x - self.dx) * 0.25
-    self.y -= (self.y - self.dy) * 0.25
+    if self.state < 1:
+      self.x -= (self.x - self.dx) * 0.25
+      self.y -= (self.y - self.dy) * 0.25
+    else:
+      self.state -= 1
 
   def reset(self):
-    self.x = 250 - 32
-    self.y = 250 - 32
+    self.x = lanes[self.pos_x]
+    self.y = lanes[self.pos_y]
+    self.dx = self.x
+    self.dy = self.y
+    self.state = 0
+  
+  def update_dx_dy(self):
+    self.dx = lanes[self.pos_x]
+    self.dy = lanes[self.pos_y]
