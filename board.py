@@ -1,20 +1,16 @@
+# constants.py
 import pygame
-pygame.init
+from random import randint
 
-lanes = [93, 218, 343]
+# Get the clock
+clock = pygame.time.Clock()
+
+# Configure the screen
 screen = pygame.display.set_mode([500, 500])
-SCREEN_WIDTH, SCREEN_HEIGHT = pygame.display.get_surface().get_size()
+lanes = [93, 218, 343]
+positive_move = (randint(0, 200) / 100) + 1
+negative_move = ((randint(0, 200) / 100) + 1) * -1
 
-center = SCREEN_WIDTH / 2
-middle = center - 32
-left = center / 2 - 25
-right =  SCREEN_WIDTH - (center / 2) - 25
-x_lanes = [left, middle, right]
-
-center_horizontal = SCREEN_HEIGHT / 2
-center_horizontal_lane = center_horizontal - 32
-top = center_horizontal / 2 - 25
-bottom = SCREEN_HEIGHT - (center_horizontal / 2) - 25
-y_lanes = [top, center_horizontal_lane, bottom]
-
-speed_increase_value = 0.1
+#text
+score = 0
+highscore = 0
