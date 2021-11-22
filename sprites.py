@@ -10,7 +10,7 @@ class Apple(GameObject):
         super(Apple, self).__init__(random.choice(lanes), 0, 'images/apple.png')
         self.dx = 0
         self.dy = (randint(0, 200) / 100) + 1
-        self.reset() # call reset here! 
+        self.reset()
         print(f'apple: {self.x},{self.y}')
 
     def move(self):
@@ -18,7 +18,6 @@ class Apple(GameObject):
         self.x += self.dx
         self.y += self.dy
         
-        # Check the y position of the apple
         if self.y >= 500 or self.y <= -64: 
             self.reset()
 
@@ -58,8 +57,8 @@ class Player(GameObject):
         super(Player, self).__init__(93, 93, 'images/player.png')
         self.dx = 93
         self.dy = 93
-        self.pos_x = 1 # new attribute
-        self.pos_y = 1 # new attribute
+        self.pos_x = 1 
+        self.pos_y = 1 
         self.reset()
 
     def left(self):

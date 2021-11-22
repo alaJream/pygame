@@ -1,3 +1,4 @@
+# game.py
 # Import and initialize pygame
 import pygame
 import board
